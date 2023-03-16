@@ -385,13 +385,13 @@ def main():
         
         target.update()
         target.render(win)
-                
-        cannon.draw(win)
         
         for ball in balls:
             ball.update()
             ball.render(win)
             check_collision(ball, target)
+            
+        cannon.draw(win)
         
         win.blit(levelTextImg, (screenWidth-levelTextImg.get_width(),0))
         
