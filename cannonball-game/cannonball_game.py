@@ -14,21 +14,16 @@ import sys
 import random
 from math import pi, sin, cos, sqrt, atan2
 
-
 pg.init()
-
 
 screenWidth = 850
 screenHeight = 550
-
 
 screenSize = (screenWidth, screenHeight)
 
 win = pg.display.set_mode(screenSize)
 
 pg.display.set_caption("Cannonball game")
-
-
 
 #RGB
 BLACK = (0, 0, 0)
