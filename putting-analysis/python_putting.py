@@ -225,11 +225,12 @@ for d in discColorDict.keys():
 # All discs
 #colorList.append('#00cc00')
 
+"""
 plt.bar(range(len(C1Xdict)), list(C1Xdict.values()), color=colorList, edgecolor='black')
 plt.xticks(range(len(C1Xdict)), list(C1Xdict.keys()))
 plt.ylabel("C1X putting percentage")
 plt.show()
-
+"""
 
 x = list(range(4,8+1))
 distList = []
@@ -254,12 +255,15 @@ for disc in discs:
             
     plt.plot(x, y, '-o', color=colorList[i], label=disc)
     i += 1
-        
+
+"""
 plt.xlabel("Distance [m]")
 plt.ylabel('Putts made [%]')
 ax.xaxis.set_major_locator(MaxNLocator(integer=True))
 plt.legend()
 plt.show()
+"""
+
 
 x = []
 y = []
@@ -283,6 +287,10 @@ x = np.array(x)
 y = np.array(y)
 print()
 
+disc = "Deputy"
+print(disc)
+print(discDict[disc])
+
 """
 reg = np.polyfit(x,y,1)
 a = reg[0]
@@ -292,6 +300,7 @@ yfit = a*x + b
 print(f"a = {a:.0f}")
 """
 
+"""
 slope, intercept, r_value, p_value, std_err = scipy.stats.linregress(x, y)
 
 yfit = slope*x + intercept
@@ -315,3 +324,4 @@ plt.yticks(np.arange(0, 100+1, step=10))
 plt.xlabel("Distance")
 plt.ylabel("Putts made [%]")
 plt.show()
+"""
