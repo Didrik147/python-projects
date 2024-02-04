@@ -287,7 +287,7 @@ x = np.array(x)
 y = np.array(y)
 print()
 
-disc = "Deputy"
+disc = "Reko"
 print(disc)
 print(discDict[disc])
 
