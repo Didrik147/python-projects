@@ -18,16 +18,25 @@ timeseries = data['properties']['timeseries']
 
 time = []
 air_temperature_mean = []
+air_temperature_min = []
+air_temperature_max = []
 
 for t in timeseries:
   time.append(t['time'])
   air_temperature_mean.append(t['data']['next_24_hours']['details']['air_temperature_mean'])
+  air_temperature_min.append(t['data']['next_24_hours']['details']['air_temperature_min'])
+  air_temperature_max.append(t['data']['next_24_hours']['details']['air_temperature_max'])
 
 
-df = pd.DataFrame(list(zip(time, air_temperature_mean)), columns=['time', 'air_temperature_mean'])
+df = pd.DataFrame(list(zip(
+  time, air_temperature_mean, air_temperature_min, air_temperature_max
+  )), columns=['time', 'air_temperature_mean', 'air_temperature_min', 'air_temperature_max'])
+
 df['time'] = pd.to_datetime(df['time']).dt.date
-
 df = df.rename(columns={'time':'date'})
+df = df.set_index('date')
+
+st.header('Oslo - Blindern')
 
 st.subheader('Data Preview')
 st.write(df.head())
@@ -37,4 +46,10 @@ st.write(df.describe())
 
 st.subheader('Plot data')
 
-st.line_chart(df.set_index('date')['air_temperature_mean'])
+#st.line_chart(df.set_index('date')['air_temperature_mean'])
+st.line_chart(
+  df,
+  color=['#0f0', '#66f', '#f22'],
+  x_label='Date',
+  y_label = 'Temperature (°C)',
+)
