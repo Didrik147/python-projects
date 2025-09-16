@@ -13,8 +13,8 @@ url = 'https://api.met.no/weatherapi/subseasonal/1.0/complete?lat=59.94&lon=10.7
 #}
 
 headers = {
-  'User-Agent': st.secrets['user_agent'],
-  'From': st.secrets['from']
+  'User-Agent': st.secrets["user_agent"],
+  'From': st.secrets["from"]
 }
 
 response = requests.get(url, headers=headers)
