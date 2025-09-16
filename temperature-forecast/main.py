@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 
-st.title('21 days temperature forecast')
+st.title('Long term temperature forecast')
 
 url = 'https://api.met.no/weatherapi/subseasonal/1.0/complete?lat=59.94&lon=10.72'
 
@@ -38,13 +38,15 @@ df = df.set_index('date')
 
 st.header('Oslo - Blindern')
 
-st.subheader('Data Preview')
-st.write(df.head())
+st.subheader(f'Data Preview: {df.shape[0]} days')
+st.write(df)
   
-st.subheader('Data Summary')
-st.write(df.describe())
+st.subheader(f'Data Summary: {df.shape[0]} days')
+df_describe = df.describe().drop(['count', '25%', '75%'])
+df_describe.rename(index={'50%': 'median'}, inplace=True)
+st.write(df_describe)
 
-st.subheader('Plot data')
+st.subheader('Plot of temperature for each day')
 
 #st.line_chart(df.set_index('date')['air_temperature_mean'])
 st.line_chart(
