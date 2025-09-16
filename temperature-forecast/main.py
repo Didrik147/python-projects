@@ -12,7 +12,6 @@ headers = {
 }
 
 response = requests.get(url, headers=headers)
-
 data = response.json()
 
 timeseries = data['properties']['timeseries']
