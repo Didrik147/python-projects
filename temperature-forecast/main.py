@@ -30,4 +30,12 @@ df['time'] = pd.to_datetime(df['time']).dt.date
 
 df = df.rename(columns={'time':'date'})
 
+st.subheader('Data Preview')
 st.write(df.head())
+  
+st.subheader('Data Summary')
+st.write(df.describe())
+
+st.subheader('Plot data')
+
+st.line_chart(df.set_index('date')['air_temperature_mean'])
