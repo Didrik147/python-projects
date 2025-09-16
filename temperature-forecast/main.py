@@ -6,12 +6,6 @@ st.title('21 days temperature forecast')
 
 url = 'https://api.met.no/weatherapi/subseasonal/1.0/complete?lat=59.94&lon=10.72'
 
-
-#headers = {
-#  'User-Agent': 'Didrik R.',
-#  'From': 'didrik.roest@yahoo.com'
-#}
-
 headers = {
   'User-Agent': st.secrets["user_agent"],
   'From': st.secrets["from"]
