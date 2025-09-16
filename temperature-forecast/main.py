@@ -38,15 +38,16 @@ df = df.set_index('date')
 
 st.header('Oslo - Blindern')
 
-st.subheader(f'Data Preview: {df.shape[0]} days')
+st.subheader(f'Data Preview: Next {df.shape[0]} days')
 st.write(df)
   
-st.subheader(f'Data Summary: {df.shape[0]} days')
+st.subheader(f'Data Summary: Next {df.shape[0]} days')
 df_describe = df.describe().drop(['count', '25%', '75%'])
 df_describe.rename(index={'50%': 'median'}, inplace=True)
 st.write(df_describe)
 
-st.subheader('Plot of temperature for each day')
+# Wall against ground
+st.subheader('Plot of temperature against date')
 
 #st.line_chart(df.set_index('date')['air_temperature_mean'])
 st.line_chart(
